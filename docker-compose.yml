@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  db:
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    volumes:
+      - ./data:/var/opt/mssql/data
+      - ./log:/var/opt/mssql/log
+      - ./secrets:/var/opt/mssql/secrets
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=mealPlanner123!
+    ports:
+      - 1433:1433
